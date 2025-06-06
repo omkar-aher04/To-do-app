@@ -1,0 +1,191 @@
+body{
+     background: linear-gradient(135deg, #fbf7ff, #ece9ff, #f3eeff);
+}
+#left {
+    height: 100%;
+    width: 25%;
+    background: linear-gradient(135deg, #fbf7ff, #ece9ff, #f3eeff);
+    backdrop-filter: blur(40px); /* ✅ correct way to blur the background only */
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    position: relative; /* or absolute/fixed based on layout */
+    z-index: 1; /* ensure it's above background, but below important content */
+    border-radius: 10px; /* optional: smooth corners */
+    padding-left: 20px;
+}
+
+#wrapper{
+    display: flex;
+}
+#right{
+    height: auto;
+    width: 70%;
+    height: 100%;
+}
+.components{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1px;
+    width: 95%;
+}
+.component-box{
+    display: flex;
+    height: 50px;
+    width: 130px;
+    align-items: last baseline;
+    margin-bottom: 0%;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    padding-left: 13px;
+    border-radius: 10px;
+    background-color:  rgba(53, 53, 55, 0.126);
+    z-index: 1;
+}
+.lists{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.lists h4 {
+    margin: 6px;
+}
+.lists i{
+    margin-right: 9px ;
+}
+.add-list{
+    margin-top: 40%;
+    margin-left: 60%;
+}
+
+.fa-magnifying-glass{
+    position: relative;
+    left: 15px;
+    top: 24px;
+    
+}
+.search{
+    padding-left:40px;
+    background-color:  rgba(53, 53, 55, 0.126);
+    width: 90%;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 15px;
+    outline: none;
+    border: none;
+}
+.addToDo{
+    margin-left: 88%;
+}
+.to-do{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.parent p:empty:before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.parent p {
+  outline: none;
+  min-height: 20px;
+  margin: 10px;
+}
+.parent{
+    margin-left: 40px;
+    border: 1px solid black;
+    width: 60%;
+    border-radius: 10px;
+}
+.parent .desc {
+  outline: none;
+  min-height: 20px;
+  margin: 10px;
+}
+.addBtn{
+    float: right;
+    height: 30px;
+    width: 90px;
+   position: relative;
+   right: 20px;
+   bottom: 19px;
+   text-align: center;
+   color: white;
+   background-color: #dc4c3e;
+   border-radius: 5px;
+   border: none;
+}
+.task-item{
+    display: flex;
+   height: auto;
+   margin-left: 10px;
+}
+.task-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    margin-top: 18px;
+    margin-right: 8px;
+}
+
+/* Checkmark */
+.task-checkbox:hover {
+    background-color: #4CAF50; /* green when checked */
+    border-color: #4CAF50;
+}
+
+.task-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.deleted {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  z-index: 9999;
+  pointer-events: none; /* Prevent any accidental clicks */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+}
