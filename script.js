@@ -77,9 +77,9 @@ function addtask() {
 // ✅ Run this on page load to restore input + saved tasks
 const showData = () => {
   addtask(); // Show input field on load
+  const fragment = document.createDocumentFragment();
 
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
   savedTasks.forEach(taskText => {
     const taskWrapper = document.createElement("div");
     taskWrapper.classList.add("task-item");
@@ -107,9 +107,10 @@ const showData = () => {
         setTimeout(() => deleted.remove(), 2000);
       }
     });
-
     taskWrapper.append(checkbox, taskTitle);
-    Todo.prepend(taskWrapper);
+    fragment.append(taskWrapper);
+
+    Todo.prepend(fragment);
   });
 };
 showData();
